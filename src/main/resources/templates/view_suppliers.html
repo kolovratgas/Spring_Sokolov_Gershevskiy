@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers</title>
+</head>
+<body>
+    <div th:if="${suppliers.size() > 0}">
+        <div th:each="supplier : ${suppliers}">
+            <span th:text="${supplier.getName() + ' products:'}"></span>
+                <div th:each="product : ${supplier.getProducts()}">
+                    <pre th:text="${'    ' + product.getName()}"></pre>
+                </div>
+        </div>
+    </div>
+    <div th:if="${suppliers.size() < 0}">
+        <span>Nothing to show</span>
+    </div>
+</body>
+</html>
